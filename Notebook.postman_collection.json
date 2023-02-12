@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "ca7f1c44-dd45-4dd1-a680-38928a80d659",
+		"name": "Notebook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"ABC\",\"email\":\"abc@abc.com\",\"password\":\"12345\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/api/register",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Notes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{local_url}}/api/note",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"api",
+						"note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"abc@abc.com\",\"password\":\"12345\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/api/login",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add note",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTQ5NTBiYzk2OGI1OTMzN2IzZTNkMiIsImlhdCI6MTY3NTkzNjgzNSwiZXhwIjoxNjc1OTQwNDM1fQ.C6p28bDxzQkSSsJR3gLWkt3x_529AYVOorgMqyJjck0",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"new 2 \",\"data\":\"deew\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/api/addNote",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"api",
+						"addNote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Note",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"63e6039dd6483d61a07f0604\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/api/deleteNote",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"api",
+						"deleteNote"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
