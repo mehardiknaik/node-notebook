@@ -6,6 +6,8 @@ const router = Router();
 // Post Method
 router.route("/register").post(controller.register);
 router.route("/login").post(controller.login);
+router.route("/resetPassword").post(controller.resetPassword);
+
 router.route("/addNote").post(auth, controller.addNote);
 router.route("/deleteNote").post(auth, controller.deleteNote);
 router.route("/updateNote").post(auth, controller.updateNote);

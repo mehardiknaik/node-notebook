@@ -159,6 +159,33 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "resetPassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"abc@abc.com\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/api/resetPassword",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"api",
+						"resetPassword"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

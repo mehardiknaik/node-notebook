@@ -39,3 +39,17 @@ export const login = async (req, res) => {
     res.status(500).json({ message: e.message });
   }
 };
+
+export const resetPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    console.log(email);
+    let user = await User.findOne({ email });
+    if (!user) return res.status(500).json({ message: "User Not Found" });
+    user.password = process.env.DEFAULT_PASSWORD
+    user.save()
+    res.status(200).json({ message: "Password reset Successfully" });
+  } catch (e) {
+    res.status(500).json({ message: e.message });
+  }
+}
