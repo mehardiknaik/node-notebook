@@ -1,6 +1,7 @@
 import { Router } from "express";
 import * as controller from "../controller/index.js"
 import { auth } from "../middleware/auth.js";
+import upload from "../utils/imageUpload.js";
 const router = Router();
 
 // Post Method
@@ -8,7 +9,7 @@ router.route("/register").post(controller.register);
 router.route("/login").post(controller.login);
 router.route("/resetPassword").post(controller.resetPassword);
 
-router.route("/addNote").post(auth, controller.addNote);
+router.route("/addNote").post(auth, upload.single('image'), controller.addNote);
 router.route("/deleteNote").post(auth, controller.deleteNote);
 router.route("/updateNote").post(auth, controller.updateNote);
 

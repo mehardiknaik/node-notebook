@@ -6,7 +6,7 @@ export const addNote = async (req, res) => {
     const { userId } = req;
     let note = await new Note({ title, data, userId });
     await note.save();
-    res.status(200).json({ message: "Note successfully Added" });
+    res.status(200).json({ message: "Note successfully Added",url:req.file.filename });
   } catch (e) {
     res.status(500).json({ message: e.message });
   }

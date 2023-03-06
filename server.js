@@ -23,6 +23,10 @@ app.get("/", (req, res) => {
   res.status(201).json("Home GET Request");
 });
 
+
+//Image Route
+app.use('/images', express.static('Images'));
+
 // API routes
 app.use("/api", router);
 

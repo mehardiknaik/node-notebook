@@ -43,7 +43,7 @@ export const login = async (req, res) => {
 export const resetPassword = async (req, res) => {
   try {
     const { email } = req.body;
-    const user = await User.findOneAndUpdate({ email }, { password: process.env.DEFAULT_PASSWORD })
+    const user = await User.updateOne({ email }, { password: process.env.DEFAULT_PASSWORD })
     if (!user) return res.status(500).json({ message: "Please Enter Valid Email Id" });
     res.status(200).json({ message: "Password reset Successfully" });
   } catch (e) {
