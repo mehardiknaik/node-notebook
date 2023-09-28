@@ -6,16 +6,8 @@ const connect = async () => {
   // const geturl = mongod.getUri()
 
   // mongoose.set('strictQuery',true)
-  const db = await mongoose
-    .connect(process.env.DB_URI, {
-      serverSelectionTimeoutMS: 5000,
-    })
-    .catch((e) => {
-      console.log('Invalid Database Connection......', e);
-    });
-  console.log(
-    `\x1b[92mDatabase Connected to \x1b[93m${process.env.DB_URI}\x1b[0m`
-  );
-  return db;
+  return mongoose.connect(process.env.DB_URI, {
+    serverSelectionTimeoutMS: 5000,
+  });
 };
 export default connect;

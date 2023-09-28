@@ -30,20 +30,31 @@ app.use('/images', express.static('Images'));
 app.use('/api', router);
 
 // Database Connection
-connect().then(() => {
-  // Start Server
-  app
-    .listen(port, () => {
-      console.log(
-        `Server Connected to\x1b[93m http://localhost:${port}\x1b[0m`
-      );
-    })
-    .on('error', (error) => {
-      console.log(
-        `\x1b[31merror While starting Server...... ${error.code}\x1b[0m`
-      );
-    });
-});
+connect()
+  .then(() => {
+    // Database connection sucessfull
+    console.log(
+      `\x1b[92mDatabase Connected to \x1b[93m${process.env.DB_URI}\x1b[0m`
+    );
+    // Start Server
+    app
+      .listen(port, () => {
+        // Server connection sucessfull
+        console.log(
+          `Server Connected to\x1b[93m http://localhost:${port}\x1b[0m`
+        );
+      })
+      .on('error', (error) => {
+        // Sercer connection Error
+        console.log(
+          `\x1b[31merror While starting Server...... ${error.code}\x1b[0m`
+        );
+      });
+  })
+  .catch((e) => {
+    // Database connection Error
+    console.log(`\x1b[31mInvalid Database Connection...... ${e}\x1b[0m`);
+  });
 
 // Error Handler
 app.use((req, res, next) => {
